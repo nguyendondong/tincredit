@@ -5,7 +5,6 @@
 --------------------------------------
 ======================================*/
 
-
 'use strict';
 
 $(window).on('load', function() {
@@ -14,8 +13,13 @@ $(window).on('load', function() {
 	--------------------*/
 	$(".loader").fadeOut();
 	$("#preloder").delay(400).fadeOut("slow");
-
 });
+
+fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('headerContent').innerHTML = data;
+        });
 
 (function($) {
 	/*------------------
@@ -136,8 +140,9 @@ $(window).on('load', function() {
 
 	$('.js-confirm').on('click', function(){
 		let data = $(".js-form-customer").serialize();
-
-    $.ajax({
+		let check = $("#phone").val().length && $("#name").val().length
+		if (check) {
+			$.ajax({
         url: 'https://docs.google.com/forms/d/e/1FAIpQLSf3e3P44cIr1QUfYod6BqPSWLfZlHQnVcKbpkNeJozU_UV37w/formResponse?',
         method: 'POST',
         dataType: 'json',
@@ -147,9 +152,12 @@ $(window).on('load', function() {
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(errorThrown);
         }
-    });
-		window.jQuery(this).trigger('reset');
-    alert('Gửi thành công, chúng thôi sẽ sớm liên hệ với bạn!');
-    return true;
+    	});
+			window.jQuery(this).trigger('reset');
+			alert('Gửi thành công, chúng thôi sẽ sớm liên hệ với bạn!');
+			return true;
+		} else {
+			alert('Thông tin không được để trống!');
+		}
 	});
 })(jQuery);
