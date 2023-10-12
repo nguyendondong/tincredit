@@ -12,14 +12,8 @@ $(window).on('load', function() {
 		Preloder
 	--------------------*/
 	$(".loader").fadeOut();
-	$("#preloder").delay(400).fadeOut("slow");
+	$("#preloder").delay(600).fadeOut("slow");
 });
-
-fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('headerContent').innerHTML = data;
-        });
 
 (function($) {
 	/*------------------
@@ -146,12 +140,7 @@ fetch('header.html')
         url: 'https://docs.google.com/forms/d/e/1FAIpQLSf3e3P44cIr1QUfYod6BqPSWLfZlHQnVcKbpkNeJozU_UV37w/formResponse?',
         method: 'POST',
         dataType: 'json',
-        data: data,
-        success: function(responseData, textStatus, jqXHR) {
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.log(errorThrown);
-        }
+        data: data
     	});
 			window.jQuery(this).trigger('reset');
 			alert('Gửi thành công, chúng thôi sẽ sớm liên hệ với bạn!');
