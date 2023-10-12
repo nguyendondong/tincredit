@@ -1504,6 +1504,11 @@ Contact Page
 /* Large Mobile :480px. */
 
 @media only screen and (max-width: 767px) {
+	.icon-box-item {
+		display: inline-flex;
+		justify-content: center;
+		margin-bottom: 30px;
+	}
 	.header-section {
 		overflow: hidden;
 		padding: 0 25px;
