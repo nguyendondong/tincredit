@@ -323,6 +323,10 @@ Commom elements
 	margin-bottom: 0;
 }
 
+.text-black {
+	color: black;
+}
+
 /* Icon Box */
 
 .icon-box-item {
